@@ -55,6 +55,10 @@ app.get("/",function(req,res){
      });
 });
 
+app.get("/About",function(req,res){
+  res.render("about");
+});
+
 app.get("/:customListName",function(req,res){
   const customListName = _.capitalize(req.params.customListName);
   List.findOne({name: customListName}, function(err,foundList) {
@@ -122,9 +126,7 @@ app.post("/work",function(req,res){
      workItems.push(item);
      res.redirect("/work");
 });
-app.get("/About",function(req,res){
-  res.render("about");
-})
+
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
