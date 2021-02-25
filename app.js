@@ -11,6 +11,7 @@ app.use(express.static("public"));
 
 mongoose.connect("mongodb+srv://admin-saivarma:Sai2000@cluster0.6rnl9.mongodb.net/todolistDB?retryWrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology: true});
 
+
 const itemsSchema = new mongoose.Schema({
   name: String
 });
@@ -55,6 +56,7 @@ app.get("/",function(req,res){
      });
 });
 
+
 app.get("/About",function(req,res){
   res.render("about");
 });
@@ -81,6 +83,7 @@ app.get("/:customListName",function(req,res){
 
 });
 
+
 app.post("/",function(req,res){
   const itemName = req.body.newItem;
   const listName = req.body.list;
@@ -99,6 +102,7 @@ app.post("/",function(req,res){
      });
    }
 });
+
 
 app.post("/delete",function(req,res){
   const checkeditemid = req.body.checkbox;
@@ -126,7 +130,10 @@ app.post("/work",function(req,res){
      workItems.push(item);
      res.redirect("/work");
 });
-
+app.post("/:customListName",function(req,res){
+  const customListName = _.capitalize(req.params.customListName)
+  res.redirect("/"+customListName);
+})
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;

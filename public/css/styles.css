@@ -56,7 +56,7 @@ form.item {
   margin-left: 20px;
 }
 
-button {
+.btn1 {
   min-height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -93,3 +93,36 @@ footer {
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
 }
+
+.topnav {
+  background-color: #A683E3;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+/* Style the links inside the navigation bar */
+.topnav button {
+  float: left;
+  color: #A683E3;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav button:hover {
+  background-color: #c462a3;
+  color: #f2f2f2;
+}
+
+/* Add a color to the active/current link */
+.topnav button.active {
+  background-color: #c462a3;
+  color: white;
+}
+
+.topnav button.tabright {
+  float: right;
+}
+
